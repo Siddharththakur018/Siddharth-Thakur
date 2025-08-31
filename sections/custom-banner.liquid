@@ -3,23 +3,8 @@
 {% endcomment %}
 
 <section class="custom-banner">
-  {% if section.settings['banner-desktop-image'] != blank %}
-    {% assign banner_image = section.settings['banner-desktop-image'] %}
+  {{- 'banner-desktop-image.svg' | inline_asset_content -}}
 
-    {% if banner_image contains '.svg' %}
-      <img 
-        src="{{ banner_image | file_url }}" 
-        alt="{{ section.settings.heading | escape }}" 
-        class="banner-img"
-      >
-    {% else %}
-      <img 
-        src="{{ banner_image | image_url: width: 1600 }}" 
-        alt="{{ section.settings.heading | escape }}" 
-        class="banner-img"
-      >
-    {% endif %}
-  {% endif %}
 
   {% if section.settings.heading != blank %}
     <h2>{{ section.settings.heading }}</h2>
